@@ -1,6 +1,8 @@
 # 🇮🇳 UIDAI Analytics Dashboard 2026
 > **Unlocking Societal Trends in Aadhaar Enrolment & Updates**
 
+![Dashboard Preview](dashboard_preview.png)
+
 ## 🏆 Problem Statement addressed
 **"Identify meaningful patterns, trends, anomalies, or predictive indicators and translate them into clear insights or solution frameworks that can support informed decision-making and system improvements."**
 
@@ -23,7 +25,7 @@ This project is an **AI-Powered Real-Time Analytics Platform** that transforms r
 - **📊 Interactive Visualizations**:
   - **Enrollment Trends**: Track growth over time.
   - **Societal Shifts**: Analyze the ratio of Enrollments vs Updates.
-  - **Geographic Hotspots**: State-wise distribution.
+  - **Geographic Hotspots**: All Indian States & UTs covered.
 - **🚨 Instant Alerts**: Priority alert system for districts with high rejection rates or ML-flagged anomalies.
 
 ## 🛠 Tech Stack
@@ -45,21 +47,21 @@ This project is an **AI-Powered Real-Time Analytics Platform** that transforms r
    ```
 2. Install dependencies:
    ```bash
-   pip install flask pandas scikit-learn joblib
+   pip install -r requirements.txt
    ```
 
 ### Running the System
-1. **(Optional) Retrain ML Model**:
+1. **Start the Real-Time Server**:
+   ```bash
+   python3 realtime_server.py
+   ```
+2. **Access Dashboard**:
+   Open **[http://localhost:5000](http://localhost:5000)** in your browser.
+3. **(Optional) Retrain ML Model**:
    If you want to regenerate the anomaly detection model:
    ```bash
    python3 src/ml_training.py
    ```
-2. **Start the Real-Time Server**:
-   ```bash
-   python3 realtime_server.py
-   ```
-3. **Access Dashboard**:
-   Open **[http://localhost:5000](http://localhost:5000)** in your browser.
 
 ## 🧪 Simulation Details
 The `simulate_live_data` engine generates realistic variations in:
@@ -67,15 +69,13 @@ The `simulate_live_data` engine generates realistic variations in:
 - **Outcomes**: Success, Rejected, Pending.
 - **Anomalies**: Random injection of statistical outliers to test the ML engine.
 
-## 🔮 Future Scope
-- Integration with live UIDAI API (secure sandbox).
-- GIS Mapping for geospatial visualization of enrollment centers.
-- LLM-powered natural language reporting (e.g., *"Summarize today's trends"*).
-
----
-*Built with ❤️ for Digital India.*
-
 ## ⚖️ Disclaimer & Compliance
 - **Synthetic Data Only**: This project uses purely **mock/synthetic data** generated programmatically. It does **not** access, store, or process any real Aadhaar data or PII (Personally Identifiable Information).
 - **Educational Purpose**: This is a prototype designed for the **UIDAI 2026 Hackathon**. It is **not** an official government website or affiliated with UIDAI in any official capacity.
 - **Fairness**: The Machine Learning models and algorithms are designed to detect statistical outliers without bias towards any gender, religion, or community.
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+*Built with ❤️ for Digital India.*
