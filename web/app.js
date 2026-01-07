@@ -32,6 +32,7 @@ function updateDashboard(data) {
     // Charts
     renderTrendChart(data.monthly_trends);
     renderStatusChart(data.status_distribution);
+    renderSocietalChart(data.request_type_distribution);
     renderStateChart(data.state_wise_enrollment);
 
     // Anomaly Table
@@ -130,6 +131,39 @@ function renderStateChart(stateData) {
                 scales: {
                     y: { grid: { color: 'rgba(255,255,255,0.05)' } },
                     x: { grid: { display: false } }
+                }
+            }
+        });
+    }
+}
+
+function renderSocietalChart(typeData) {
+    const ctx = document.getElementById('societalChart').getContext('2d');
+    const labels = Object.keys(typeData);
+    const data = Object.values(typeData);
+
+    if (charts['societal']) {
+        charts['societal'].data.labels = labels;
+        charts['societal'].data.datasets[0].data = data;
+        charts['societal'].update('none');
+    } else {
+        charts['societal'] = new Chart(ctx, {
+            type: 'polarArea',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: data,
+                    backgroundColor: ['#8b5cf6', '#ec4899', '#06b6d4', '#f59e0b'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                animation: { duration: 0 },
+                plugins: {
+                    legend: { position: 'right', labels: { color: '#94a3b8' } }
+                },
+                scales: {
+                    r: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { display: false } }
                 }
             }
         });

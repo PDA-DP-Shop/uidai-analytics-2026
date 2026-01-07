@@ -1,13 +1,29 @@
 # 🇮🇳 UIDAI Analytics Dashboard 2026
-> **A Real-Time, AI-Powered Anomaly Detection Platform for Aadhaar Data**
+> **Unlocking Societal Trends in Aadhaar Enrolment & Updates**
 
-## 🏆 Project Overview
-This project was built for the **UIDAI Data Hackathon 2026**. It is a next-generation analytics dashboard designed to monitor Aadhaar enrollment trends in real-time and detect fraudulent or anomalous patterns using Machine Learning.
+## 🏆 Problem Statement addressed
+**"Identify meaningful patterns, trends, anomalies, or predictive indicators and translate them into clear insights or solution frameworks that can support informed decision-making and system improvements."**
 
-### 🌟 Key Features
+## 💡 Our Solution
+This project is an **AI-Powered Real-Time Analytics Platform** that transforms raw Aadhaar transaction data into actionable intelligence.
+
+### How we solved it:
+| Problem Keyword | Our Feature Implementation |
+|----------------|----------------------------|
+| **"Meaningful Patterns"** | **Societal Trends Dashboard**: live visualization of the shift from *New Enrollments* to *Biometric/Demographic Updates*, indicating maturity in digital ID adoption. |
+| **"Anomalies"** | **ML Engine (Isolation Forest)**: A trained Machine Learning model that scans every single transaction in real-time to flag statistical outliers (e.g., suspicious update clusters). |
+| **"Predictive Indicators"** | **Confidence Scoring**: Each detected anomaly is assigned an ML Confidence Score to help officials prioritize investigations. |
+| **"Informed Decision-Making"** | **Real-Time Control Center**: A centralized, glassmorphic dashboard that provides instant situational awareness to administrators. |
+
+---
+
+## 🚀 Key Features
 - **⚡️ Real-Time Processing**: Ingests and visualizes enrollment data instantly (50+ transactions/second simulation).
-- **🧠 AI Anomaly Detection**: Uses an **Isolation Forest** Machine Learning model to flag suspicious demographic/biometric update patterns.
-- **📊 Interactive Dashboard**: A premium, glassmorphism-styled UI with live chart updates.
+- **🧠 AI Anomaly Detection**: Uses **Isolation Forest** (Unsupervised Learning) to detect fraud and operational issues.
+- **📊 Interactive Visualizations**:
+  - **Enrollment Trends**: Track growth over time.
+  - **Societal Shifts**: Analyze the ratio of Enrollments vs Updates.
+  - **Geographic Hotspots**: State-wise distribution.
 - **🚨 Instant Alerts**: Priority alert system for districts with high rejection rates or ML-flagged anomalies.
 
 ## 🛠 Tech Stack
@@ -24,8 +40,8 @@ This project was built for the **UIDAI Data Hackathon 2026**. It is a next-gener
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone <repo-url>
-   cd aadhaar-website
+   git clone https://github.com/PDA-DP-Shop/uidai-analytics-2026.git
+   cd uidai-analytics-2026
    ```
 2. Install dependencies:
    ```bash

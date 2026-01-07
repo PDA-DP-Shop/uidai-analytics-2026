@@ -16,6 +16,7 @@ current_data = {
     'success_count': 110000, 
     'monthly_trends': {},
     'status_distribution': {'Success': 0, 'Rejected': 0, 'Pending': 0},
+    'request_type_distribution': {'New Enrollment': 0, 'Biometric Update': 0, 'Demographic Update': 0},
     'state_enrollment': {},
     'anomalies': []
 }
@@ -43,6 +44,11 @@ def init_mock_stats():
         'Success': int(current_data['total_records'] * 0.8),
         'Rejected': int(current_data['total_records'] * 0.15),
         'Pending': int(current_data['total_records'] * 0.05)
+    }
+    current_data['request_type_distribution'] = {
+        'New Enrollment': int(current_data['total_records'] * 0.3),
+        'Biometric Update': int(current_data['total_records'] * 0.4),
+        'Demographic Update': int(current_data['total_records'] * 0.3)
     }
     
     # Generate last 12 months keys
@@ -92,7 +98,13 @@ def simulate_live_data():
             for _ in range(new_requests):
                 state = random.choice(STATES)
                 district = random.choice(DISTRICTS[state])
-                request_type = random.choice(['New Enrollment', 'Biometric Update', 'Demographic Update', 'Mobile Update'])
+                request_type_key = random.choice(['New Enrollment', 'Biometric Update', 'Demographic Update'])
+                request_type = request_type_key # Keep for ML encoding
+                
+                # Update Request Stats
+                if request_type_key not in current_data['request_type_distribution']:
+                    current_data['request_type_distribution'][request_type_key] = 0
+                current_data['request_type_distribution'][request_type_key] += 1
                 gender = random.choice(['Male', 'Female', 'Transgender'])
                 age = random.randint(1, 90)
 
@@ -148,6 +160,7 @@ def get_stats():
                 'last_updated': datetime.datetime.now().strftime('%H:%M:%S')
             },
             'status_distribution': current_data['status_distribution'],
+            'request_type_distribution': current_data['request_type_distribution'],
             'monthly_trends': current_data['monthly_trends'],
             'state_wise_enrollment': current_data['state_enrollment'],
             'anomalies': current_data['anomalies']
