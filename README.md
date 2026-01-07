@@ -74,3 +74,8 @@ The `simulate_live_data` engine generates realistic variations in:
 
 ---
 *Built with ❤️ for Digital India.*
+
+## ⚖️ Disclaimer & Compliance
+- **Synthetic Data Only**: This project uses purely **mock/synthetic data** generated programmatically. It does **not** access, store, or process any real Aadhaar data or PII (Personally Identifiable Information).
+- **Educational Purpose**: This is a prototype designed for the **UIDAI 2026 Hackathon**. It is **not** an official government website or affiliated with UIDAI in any official capacity.
+- **Fairness**: The Machine Learning models and algorithms are designed to detect statistical outliers without bias towards any gender, religion, or community.
