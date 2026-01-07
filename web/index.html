@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UIDAI Analytics Dashboard 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/c/cf/Aadhaar_Logo.svg" alt="Aadhaar Logo"
+                    class="aadhaar-logo">
+                <h1>UIDAI Analytics 2026</h1>
+                <div class="live-indicator">
+                    <span class="dot"></span> LIVE
+                </div>
+            </div>
+            <div class="date-display" id="lastUpdated">Updating...</div>
+        </header>
+
+        <main>
+            <!-- KPI Cards -->
+            <section class="kpi-grid">
+                <div class="card kpi-card">
+                    <h3>Total Records</h3>
+                    <p id="totalRecords">0</p>
+                </div>
+                <div class="card kpi-card">
+                    <h3>Success Rate</h3>
+                    <p id="successRate">0%</p>
+                </div>
+                <div class="card kpi-card warning">
+                    <h3>Anomalies Detected</h3>
+                    <p id="anomalyCount">0</p>
+                </div>
+            </section>
+
+            <!-- Charts Row 1 -->
+            <section class="charts-grid">
+                <div class="card chart-card">
+                    <h3>Enrollment Trends (Monthly)</h3>
+                    <canvas id="trendChart"></canvas>
+                </div>
+                <div class="card chart-card">
+                    <h3>Status Distribution</h3>
+                    <canvas id="statusChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Charts Row 2 -->
+            <section class="charts-grid">
+                <div class="card chart-card full-width">
+                    <h3>State-wise Enrollments</h3>
+                    <canvas id="stateChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Anomalies Table -->
+            <section class="anomalies-section">
+                <div class="card">
+                    <h3>⚠️ Priority Alerts: High Rejection Districts (>25%)</h3>
+                    <table id="anomalyTable">
+                        <thead>
+                            <tr>
+                                <th>State</th>
+                                <th>District</th>
+                                <th>Total Requests</th>
+                                <th>Rejections</th>
+                                <th>Rate (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+data/aadhaar_mock_data.csv
+src/model.pkl
+src/encoders.pkl
