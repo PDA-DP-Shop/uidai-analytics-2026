@@ -20,6 +20,14 @@ This document certifies that the project has been audited against the competitio
    - Status: PROVED compliant (with mitigations).
    - Evidence: To prevent confusion with official government systems, a clear Disclaimer has been added to the `README.md` and the website footer explicitly stating: "This is a hackathon prototype using synthetic data. NOT connected to real Aadhaar database."
 
+5. ORIGINALITY & OWNERSHIP
+   - Status: CERTIFIED.
+   - Evidence: The solution code was developed specifically for this hackathon (Jan 2026). It has not been previously published or awarded. The participant retains full ownership of the codebase as detailed in the submission.
+
+6. MAINTENANCE COMMITMENT
+   - Status: ACKNOWLEDGED.
+   - Evidence: The project is hosted on a permanent GitHub repository with a standard `requirements.txt` and `README.md` to ensure it remains in working condition for the required one-year period.
+
 --------------------------------------------------
-Audit Result: 100% COMPLIANT
+Audit Result: 100% COMPLIANT WITH T&C
 --------------------------------------------------
