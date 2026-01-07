@@ -7,6 +7,8 @@ import threading
 import datetime
 import os
 
+from src.india_data import INDIA_DATA
+
 app = Flask(__name__, static_folder='web', static_url_path='')
 
 # Global Data Store
@@ -21,17 +23,8 @@ current_data = {
     'anomalies': []
 }
 
-# Config
-STATES = ['Maharashtra', 'Uttar Pradesh', 'Karnataka', 'Delhi', 'Tamil Nadu', 'Bihar', 'West Bengal']
-DISTRICTS = {
-    'Maharashtra': ['Mumbai', 'Pune', 'Nagpur', 'Nashik'],
-    'Uttar Pradesh': ['Lucknow', 'Kanpur', 'Varanasi', 'Agra'],
-    'Karnataka': ['Bangalore', 'Mysore', 'Hubli', 'Mangalore'],
-    'Delhi': ['New Delhi', 'North Delhi', 'South Delhi'],
-    'Tamil Nadu': ['Chennai', 'Coimbatore', 'Madurai'],
-    'Bihar': ['Patna', 'Gaya', 'Muzaffarpur'],
-    'West Bengal': ['Kolkata', 'Howrah', 'Darjeeling']
-}
+STATES = list(INDIA_DATA.keys())
+DISTRICTS = INDIA_DATA
 
 def init_mock_stats():
     """Initializes stats with some baseline data."""

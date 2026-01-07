@@ -106,8 +106,14 @@ function renderStatusChart(statusData) {
 
 function renderStateChart(stateData) {
     const ctx = document.getElementById('stateChart').getContext('2d');
-    const labels = Object.keys(stateData);
-    const data = Object.values(stateData);
+
+    // Sort and Take Top 10
+    const sortedStates = Object.entries(stateData)
+        .sort(([, a], [, b]) => b - a)
+        .slice(0, 10);
+
+    const labels = sortedStates.map(x => x[0]);
+    const data = sortedStates.map(x => x[1]);
 
     if (charts['state']) {
         charts['state'].data.labels = labels;
@@ -122,15 +128,24 @@ function renderStateChart(stateData) {
                     label: 'Enrollments',
                     data: data,
                     backgroundColor: '#6366f1',
-                    borderRadius: 4
+                    borderRadius: 6,
+                    hoverBackgroundColor: '#818cf8'
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 animation: { duration: 0 },
                 plugins: { legend: { display: false } },
                 scales: {
-                    y: { grid: { color: 'rgba(255,255,255,0.05)' } },
-                    x: { grid: { display: false } }
+                    y: {
+                        grid: { color: 'rgba(255,255,255,0.05)' },
+                        ticks: { color: '#94a3b8' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#94a3b8' }
+                    }
                 }
             }
         });

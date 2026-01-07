@@ -3,19 +3,14 @@ import random
 import datetime
 import os
 
+from src.india_data import INDIA_DATA
+
 def generate_mock_data(num_records=1000000):
     """Generates synthetic Aadhaar enrollment and update data."""
     
-    states = ['Maharashtra', 'Uttar Pradesh', 'Karnataka', 'Delhi', 'Tamil Nadu', 'Bihar', 'West Bengal']
-    districts = {
-        'Maharashtra': ['Mumbai', 'Pune', 'Nagpur', 'Nashik'],
-        'Uttar Pradesh': ['Lucknow', 'Kanpur', 'Varanasi', 'Agra'],
-        'Karnataka': ['Bangalore', 'Mysore', 'Hubli', 'Mangalore'],
-        'Delhi': ['New Delhi', 'North Delhi', 'South Delhi'],
-        'Tamil Nadu': ['Chennai', 'Coimbatore', 'Madurai'],
-        'Bihar': ['Patna', 'Gaya', 'Muzaffarpur'],
-        'West Bengal': ['Kolkata', 'Howrah', 'Darjeeling']
-    }
+    states = list(INDIA_DATA.keys())
+    
+    # We will pick districts based on the chosen state
     
     request_types = ['New Enrollment', 'Biometric Update', 'Demographic Update', 'Mobile Update']
     genders = ['Male', 'Female', 'Transgender']
@@ -27,11 +22,12 @@ def generate_mock_data(num_records=1000000):
     start_date = datetime.date(2001, 1, 1)
     end_date = datetime.date(2025, 12, 31)
     
-    for _ in range(num_records):
+    for _ in range(num_records):        
         state = random.choice(states)
-        district = random.choice(districts[state])
-        req_type = random.choice(request_types)
-        gender = random.choice(genders)
+        district = random.choice(INDIA_DATA[state])
+        
+        request_type = random.choice(['New Enrollment', 'Biometric Update', 'Demographic Update', 'Mobile Update'])
+        gender = random.choice(genders) # This line was not in the provided snippet, but was in the original code and should be kept.
         age = random.randint(1, 90)
         
         # Simulate some logic: New enrollments mostly successful, updates vary
@@ -46,7 +42,7 @@ def generate_mock_data(num_records=1000000):
         data.append({
             'State': state,
             'District': district,
-            'RequestType': req_type,
+            'RequestType': request_type,
             'Gender': gender,
             'Age': age,
             'Date': date_occured,
